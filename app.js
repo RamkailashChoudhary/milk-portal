@@ -5,7 +5,7 @@ const URIGenerator = require('./routing/uriGenerator');
 class App {
   constructor(router) {
     this.router = router;
-    this.port = 3000;
+    this.port = process.env.PORT || 3000;
     this.host= 'localhost';
     this.express = express();
     this.express.use(bodyParser.urlencoded({ extended: true }));
