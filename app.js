@@ -56,7 +56,7 @@ class App {
     this.express.use((req, res) => {
       res.status(404).send({ url: `${req.originalUrl} not found` });
     });
-    this.express.listen(this.port, this.host);
+    this.express.listen(this.port);
     console.log(`RESTful API server started on: ${this.port}`);
   }
 }
