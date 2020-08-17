@@ -58,11 +58,11 @@ class App {
       res.status(404).send({ url: `${req.originalUrl} not found` });
     });
 
+    this.express.listen(this.port);
+    console.log(`RESTful API server started on: ${this.port}`);
+
     db.connect(() =>{
-      
-      this.express.listen(this.port);
-      console.log(`RESTful API server started on: ${this.port}`);
-      
+      console.log('DB connected successfully');
     });
   }
 }
