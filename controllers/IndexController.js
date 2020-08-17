@@ -1,6 +1,6 @@
 const halson = require('halson');
 const ControllerBase = require('./controllerBase');
-const { request } = require('express');
+const db = require('../dbconfig/db');
 
 class IndexController extends ControllerBase {
 
@@ -8,8 +8,13 @@ class IndexController extends ControllerBase {
     try {
      // const { id } = this.params;
       console.log("Print the params :"+JSON.stringify(this.params));
+      console.log('PRINT THE COLLECTION NAME :'+db.get);
       const resource = { api: 'api v1' };
-      this.ok(resource);
+      db.get().collection('quotes').find({}).toArray()
+	    .then((users) => {
+        this.ok(users);
+            console.log('Users', users);
+        });
     } catch (err) {
       this.error(err);
     }
@@ -17,7 +22,6 @@ class IndexController extends ControllerBase {
 
   async signup(){
     try{
-        request.body;
         console.log("Print the Body :"+JSON.stringify(this.body));
         const resource = halson({ api: 'sign-up body testing' });
         this.ok(resource);

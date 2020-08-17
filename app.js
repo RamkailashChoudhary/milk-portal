@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const URIGenerator = require('./routing/uriGenerator');
+const db = require('./dbconfig/db');
 
 class App {
   constructor(router) {
@@ -56,8 +57,13 @@ class App {
     this.express.use((req, res) => {
       res.status(404).send({ url: `${req.originalUrl} not found` });
     });
-    this.express.listen(this.port);
-    console.log(`RESTful API server started on: ${this.port}`);
+
+    db.connect(() =>{
+      
+      this.express.listen(this.port);
+      console.log(`RESTful API server started on: ${this.port}`);
+      
+    });
   }
 }
 

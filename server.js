@@ -2,6 +2,7 @@ const App = require('./app');
 const Router = require('./routing/router');
 const IndexRoutesBuilder = require('./routing/routesBuilders/indexRoutesBuilder');
 
+
 class Server {
   constructor() {
     this.router = new Router([

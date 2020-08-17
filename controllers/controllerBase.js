@@ -5,6 +5,7 @@ class ControllerBase {
       this.query = query;
       this.body = body;
       this.send = send;
+
     }
   
     error(err) {
