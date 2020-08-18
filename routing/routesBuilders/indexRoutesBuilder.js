@@ -9,7 +9,7 @@ class IndexRoutesBuilder extends RoutesBase {
 
   getRoutes() {
     this.buildRoute('/', 'get', 'index');
-    this.buildRoute('/login/:id','get','login');
+    this.buildRoute('/login','get','login');
     this.buildRoute('/sign-up','post','signup');
     return this.routes;
   }
