@@ -62,6 +62,26 @@ class IndexController extends ControllerBase {
     }
   }
 
+  async getAllUsers(){
+
+    try{
+
+      User.find().select('name email phoneNumber city').exec().then(result => {
+        if(result.length > 0)
+         this.ok(result);
+        else{
+          const resource = halson({message: 'User does not exist' });
+          this.error(resource);
+        } 
+      }).catch(er => {
+        this.error(er);
+      });
+    }catch(err){
+      this.error(err);
+    }
+
+  }
+
   async index() {
     const getBookURI = this.uriGenerator.getURI(
         'BooksListController_getBook',

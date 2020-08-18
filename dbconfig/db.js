@@ -1,7 +1,7 @@
 //const mongoClient = require('mongodb').MongoClient;
 const mongoose = require('mongoose');
-const mongoDbUrl = 'mongodb+srv://root:root@cluster0.xjmgx.mongodb.net/milk-portal?retryWrites=true&w=majority';
-let mongodb;
+const mongoDbUrl = 'mongodb+srv://root:root@cluster0.c9qq3.mongodb.net/milk-portal?retryWrites=true&w=majority';
+                  //mongodb+srv://root:root@cluster0.c9qq3.mongodb.net/milk-portal?retryWrites=true&w=majority
 
 function connect(callback){
  //   mongoClient.connect(mongoDbUrl, {useUnifiedTopology : true}, (err, db) => {
@@ -9,7 +9,7 @@ function connect(callback){
  //       console.log("collection name :");
  //       callback();
  //   });
-   mongoose.connect(mongoDbUrl,{useNewUrlParser: true, useUnifiedTopology: true});
+   mongoose.connect(mongoDbUrl,{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true});
 }
 function get(){
     return mongodb;

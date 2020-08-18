@@ -11,6 +11,7 @@ class IndexRoutesBuilder extends RoutesBase {
     this.buildRoute('/', 'get', 'index');
     this.buildRoute('/login','get','login');
     this.buildRoute('/sign-up','post','signup');
+    this.buildRoute('/allUsers','get','getAllUsers');
     return this.routes;
   }
 }
