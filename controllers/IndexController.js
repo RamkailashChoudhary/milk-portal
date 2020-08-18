@@ -16,9 +16,9 @@ class IndexController extends ControllerBase {
         password: this.query.password
       });
 
-      User.find(u).populate('User','name').exec().then(result => {
+      User.findOne(u).select('name email phoneNumber city').populate('User','name').exec().then(result => {
         console.log('SUCCESS'+result);
-        if(result.length > 0)
+        if(result)
          this.ok(result)
         else{
           const resource = halson({ data: u,message: 'User does not exist' });
